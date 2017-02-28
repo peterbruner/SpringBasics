@@ -3,13 +3,19 @@ package com.theironyard.novauc;
 
 public class User {
 
-    private String name;
+    private String nombre;
 
-    public User(String name) {
-        this.name = name;
+    public User(String nombre) {
+        this.nombre = nombre;
+        System.out.println("user constructor was accessed\n thus setting the object nombre to the variable" +
+                " in question");
     }
 
-    public String getName() {
-        return name;
+    public String getnombre() {
+        return nombre;
+    }
+    public void setnombre(String nombre) {
+        this.nombre = nombre;
+        System.out.println("so whats the point of a setter anyway?");
     }
 }

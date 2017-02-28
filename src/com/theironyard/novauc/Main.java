@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class Main {
 
     static User user;
+    static Notes handwritten;
 
     public static void main(String[] args) {
 
@@ -19,7 +20,8 @@ public class Main {
             if(user == null) {
                 return new ModelAndView(hashBrowns, "index.html");
             } else {
-                hashBrowns.put("name", user.getName());
+                hashBrowns.put("nombre", user.getnombre());
+                System.out.println("hopefully that entered the hashmap!");
                 return new ModelAndView(hashBrowns, "messages.html");
             }
 
@@ -27,16 +29,22 @@ public class Main {
                 new MustacheTemplateEngine()
         );
 
-        Spark.post("/login", ((request, response) -> {
-            String name = request.queryParams("loginName");
-
-            user = new User(name);
+        Spark.post("/create-user", ((request, response) -> {
+            System.out.println("accessed create user");
+            String nomDeGuerre = request.queryParams("createUser");
+            user = new User(nomDeGuerre);
             response.redirect("/");
             return "";
             })
 
         );
 
-        //Spark.post("/create-user");
+        Spark.post("/create-message", (((request, response) -> {
+            System.out.println("accessed create message");
+            String loveletter = request.queryParams("createMessage");
+            handwritten = new Notes(loveletter);
+            response.redirect("/");
+            return "";
+        })));
     }
 }
