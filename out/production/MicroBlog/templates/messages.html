@@ -4,11 +4,9 @@
 <form action="/create-message" method="post">
     <input type="text" placeholder="express your feelings" name="createMessage"/>
     <button type="submit">Submit</button>
-    {{doritos}}
-    {{loveletter}}
-    {{notes}}
-    {{handwritten}}
-
+    {{#aVector}}
+    <p>{{.}}</p>
+    {{/aVector}}
 </form>
 </body>
 </html>
