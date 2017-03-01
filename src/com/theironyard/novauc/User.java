@@ -1,9 +1,13 @@
 package com.theironyard.novauc;
 
 
+import java.util.ArrayList;
+
 public class User {
 
     private String nombre;
+    private String thingys;
+    ArrayList<String> aVector = new ArrayList<>();
 
     public User(String nombre) {
         this.nombre = nombre;
