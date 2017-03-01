@@ -17,17 +17,18 @@ public class Main {
 
         Spark.get("/", ((request, response) -> {
             HashMap hashBrowns = new HashMap();
-            if(user == null) {
+            System.out.println("fresh page?");
+            if(user == null /*user.equals("billyrayvalentine"*/) {
                 return new ModelAndView(hashBrowns, "index.html");
             } else {
-                hashBrowns.put("nombre", user.getnombre());
-                System.out.println("hopefully that entered the hashmap!");
+                hashBrowns.put("nombre", user.getNombre());
+                //System.out.println("hopefully that entered the hashmap!");
                 return new ModelAndView(hashBrowns, "messages.html");
             }
-
         }),
                 new MustacheTemplateEngine()
-        );
+
+        );System.out.println("mr mustachio has arrived?");
 
         Spark.post("/create-user", ((request, response) -> {
             System.out.println("accessed create user");
@@ -36,7 +37,6 @@ public class Main {
             response.redirect("/");
             return "";
             })
-
         );
 
         Spark.post("/create-message", (((request, response) -> {
@@ -45,6 +45,7 @@ public class Main {
             handwritten = new Notes(loveletter);
             response.redirect("/");
             return "";
-        })));
+        }))
+        );
     }
 }

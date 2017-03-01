@@ -7,14 +7,13 @@ public class User {
 
     public User(String nombre) {
         this.nombre = nombre;
-        System.out.println("user constructor was accessed\n thus setting the object nombre to the variable" +
-                " in question");
+        //System.out.println("user constructor was accessed\n thus setting the object nombre to the variable in question");
     }
 
-    public String getnombre() {
+    public String getNombre() {
         return nombre;
     }
-    public void setnombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
         System.out.println("so whats the point of a setter anyway?");
     }
