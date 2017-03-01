@@ -7,6 +7,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 import java.util.HashMap;
 
 public class Main {
+    
 
     static User user;
     static Notes handwritten;
@@ -17,7 +18,7 @@ public class Main {
 
         Spark.get("/", ((request, response) -> {
             HashMap hashBrowns = new HashMap();
-            System.out.println("fresh page?");
+            System.out.println("fresh page");
             if(user == null /*user.equals("billyrayvalentine"*/) {
                 return new ModelAndView(hashBrowns, "index.html");
             } else {
@@ -40,9 +41,10 @@ public class Main {
         );
 
         Spark.post("/create-message", (((request, response) -> {
-            System.out.println("accessed create message");
+            //System.out.println("accessed create message");
             String loveletter = request.queryParams("createMessage");
             handwritten = new Notes(loveletter);
+            System.out.println(handwritten.aVector.g);
             response.redirect("/");
             return "";
         }))
