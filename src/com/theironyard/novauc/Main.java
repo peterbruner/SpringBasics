@@ -16,7 +16,7 @@ public class Main {
 
         Spark.get("/", ((request, response) -> {
             HashMap hashBrowns = new HashMap();
-            //System.out.println("fresh page");
+            System.out.println("fresh page");
             if(user == null) {
                 return new ModelAndView(hashBrowns, "index.html");
             } else {
